@@ -21,7 +21,7 @@ public class TeleportRequest implements Runnable {
                 Thread.sleep(1000);
             }
             this.sender.teleport(this.target);
-            this.sender.sendRawMessage("You have been teleported to: " + this.target.getName());
+            this.sender.sendRawMessage("You have been teleported to " + this.target.getName() + ".");
             this.target.sendRawMessage(this.sender.getName() + " was teleported to you.");
             TeleportManager.RemoveRequest(this);
         } catch (InterruptedException e) { e.printStackTrace(); }

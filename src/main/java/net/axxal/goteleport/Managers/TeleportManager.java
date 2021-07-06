@@ -12,7 +12,6 @@ public class TeleportManager {
 
     public static void CreateRequest(Player sender, Player target) {
         TeleportationRequests.add(new TeleportRequest(sender, target));
-        target.sendRawMessage(sender.getName() + " has sent a teleportation request to you!");
     }
 
     public static void ExecuteRequest(TeleportRequest request) {
@@ -30,6 +29,16 @@ public class TeleportManager {
             }
         }
         return activeIncomingRequests;
+    }
+
+    public static ArrayList<TeleportRequest> GetActiveOutgoingRequests(Player player) {
+        ArrayList<TeleportRequest> activeOutgoingRequests = new ArrayList<>();
+        for (int i = 0; i < TeleportationRequests.size(); i++) {
+            if (TeleportationRequests.get(i).sender == player) {
+                activeOutgoingRequests.add(TeleportationRequests.get(i));
+            }
+        }
+        return activeOutgoingRequests;
     }
 
     public static boolean HasActiveOutgoingRequest(Player player) {

@@ -27,15 +27,16 @@ public class CmdRequestTeleport implements CommandExecutor {
             return true;
         }
 
-        if (args[0].equals(this.sender.getName())) {
+        if (args[0].equals(this.sender.getName()) && !this.sender.isOp()) {
             this.sender.sendRawMessage("You can't teleport to yourself!");
             return true;
-        }
+        } // !this.sender.isOp() for development. I want to tp to myself :P
 
         this.target = Bukkit.getPlayer(args[0]);
 
         TeleportManager.CreateRequest(this.sender, this.target);
         this.sender.sendRawMessage("Request was sent!");
+        this.target.sendRawMessage(this.sender.getName() + " has sent a teleportation request to you!");
 
         return true;
     }
