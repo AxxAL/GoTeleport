@@ -1,0 +1,18 @@
+name: GoTeleport
+version: @version@
+main: net.axxal.goteleport.GoTeleport
+api-version: 1.16
+prefix: GoTeleport
+authors: [ AxxAL ]
+description: Go Teleporter Man
+website: https://axxal.net
+
+commands:
+  tpr:
+    usage: /<command> <PLAYERNAME>
+  tpc:
+    usage: /<command>
+  tpaccept:
+    usage: /<command> [(Optional) PLAYERNAME]
+  tpdeny:
+    usage: /<command> [(Optional) PLAYERNAME]
